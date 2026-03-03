@@ -10,32 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21205cf55581c3045a68f0683ae27942, type: 3}
-  m_Name: NewTask
+  m_Name: Task16
   m_EditorClassIdentifier: 
-  taskId: 
-  taskName: 
-  description_Zh: 
+  taskId: Task_16_ReadVincentLog
+  taskName: "阅读维兰德博士日志"
+  description_Zh: "与档案室主控台交互。打开阅读UI，显示完整日志文本。"
   completionConditions:
-  - rid: 6700617969072078849
+  - rid: 160001
   onStartActions: []
-  onCompleteActions:
-  - rid: 6700617969072078848
+  onCompleteActions: []
   status: 0
   currentProgress: 0
   totalProgress: 1
   branches: []
-  defaultNextTask: {fileID: 0}
+  defaultNextTask: {fileID: 11400000, guid: c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 6700617969072078848
-      type: {class: GiveItemAction, ns: , asm: Assembly-CSharp}
-      data:
-        itemID: 
-        amount: 1
-    - rid: 6700617969072078849
+    - rid: 160001
       type: {class: DialogueCondition, ns: , asm: Assembly-CSharp}
       data:
-        description: 
-        dialogueID: 
+        description: "完整阅读维兰德博士日志"
+        dialogueID: Archive_VincentLog_FullRead
         mustBeFullyRead: 1
