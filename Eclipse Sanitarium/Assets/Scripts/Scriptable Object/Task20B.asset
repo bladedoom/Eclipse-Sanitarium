@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21205cf55581c3045a68f0683ae27942, type: 3}
+  m_Name: Task20B
+  m_EditorClassIdentifier: 
+  taskId: Task_20B_EndingResist
+  taskName: "结局B：拒绝转化"
+  description_Zh: "选择结局B。引导玩家前往配电室操作电闸（小游戏）。停电后触发追逐战，护士长AI激活。玩家需逃往地下室，在地下室利用"月光透镜"机关延缓护士长，最终进入通风管道。"
+  completionConditions:
+  - rid: 200201
+  onStartActions:
+  - rid: 200202
+  - rid: 200203
+  onCompleteActions:
+  - rid: 200204
+  status: 0
+  currentProgress: 0
+  totalProgress: 1
+  branches: []
+  defaultNextTask: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 200201
+      type: {class: DialogueCondition, ns: , asm: Assembly-CSharp}
+      data:
+        description: "成功进入通风管道"
+        dialogueID: EndingB_VentEnter_Complete
+        mustBeFullyRead: 1
+    - rid: 200202
+      type: {class: WorldEventAction, ns: , asm: Assembly-CSharp}
+      data:
+        eventName: Unlock_PowerRoom_And_StartMinigame
+    - rid: 200203
+      type: {class: WorldEventAction, ns: , asm: Assembly-CSharp}
+      data:
+        eventName: Activate_HeadNurse_Chase_AI
+    - rid: 200204
+      type: {class: WorldEventAction, ns: , asm: Assembly-CSharp}
+      data:
+        eventName: Play_EndingB_Credits_Roll
