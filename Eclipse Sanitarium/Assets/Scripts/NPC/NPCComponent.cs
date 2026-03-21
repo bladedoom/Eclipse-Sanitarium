@@ -19,6 +19,7 @@ public class NPCComponent : MonoBehaviour, IInteractable
     [Header("对话触发器")]
     [Tooltip("该NPC对应的对话触发器")]
     public DialogueTrriger dialogueTrigger;
+    public NPCCameraLock cameraLock;
 
     [Header("视觉表现")]
     [Tooltip("NPC的不同阶段模型")]
@@ -121,7 +122,11 @@ public class NPCComponent : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        TriggerDialogue();
+        // 开始相机锁定
+        if (cameraLock != null) cameraLock.StartLock();
+
+        // 触发对话
+        dialogueTrigger.TriggerDialogue();
     }
 
     public void ToggleHighlight(bool isHighlighted)
